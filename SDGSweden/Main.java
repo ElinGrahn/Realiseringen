@@ -5,7 +5,7 @@
 
 /**
  *
- * @author nikecederlid
+ * @author ellig
  */
 public class Main {
 
