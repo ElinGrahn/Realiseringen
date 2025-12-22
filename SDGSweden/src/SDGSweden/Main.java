@@ -1,5 +1,5 @@
 package SDGSweden;
-
+//hejhej funkar detta nu?
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
