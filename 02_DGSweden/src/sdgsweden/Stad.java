@@ -17,8 +17,12 @@ public class Stad extends javax.swing.JFrame {
     /**
      * Creates new form Stad
      */
-    public Stad(String namn, String SID) {
-        initComponents();
+    public Stad() {
+ 
+    }
+    
+    public Stad (String namn, String SID){
+         initComponents();
         this.namn = namn;
         this.SID = SID;
     }
