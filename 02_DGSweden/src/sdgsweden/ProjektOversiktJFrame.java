@@ -6,7 +6,7 @@ package sdgsweden;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
+/** 
  *
  * @author winte
  */
@@ -19,7 +19,9 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
      */
     public ProjektOversiktJFrame() {
         initComponents();
-        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel(); 
+        projektOversikt();
+        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
+        model.setRowCount(0); 
     // default håller kollumnnamn, rader, lägga till och ta bort rader. 
     //model gör att tabellen kan innehålla data.
         
@@ -31,8 +33,29 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
         "testbeskrivning"
         
        });
-    }
 
+    }
+    public void projektOversikt(){
+        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
+        model.setRowCount(0); 
+//        
+//        Projekt p1 = new Projekt(
+//                " här ska data för alla attribut in, se testprojektet ovan");
+//
+//    model.addRow(new Object[]{
+//        (objektetsnamn).getProjektnamn(),
+//        (objektetsnamn).getBeskrivning(),
+//        (objektetsnamn).getStartdatum(),
+//        (objektetsnamn).getSlutdatum(),
+//        (objektetsnamn).getKostnad(),
+//        (objektetsnamn).getStatus(),
+//        (objektetsnamn).getPrioritet(),
+//        (objektetsnamn).getProjektchef(),
+//        (objektetsnamn).getLand()
+//    
+//    });
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
