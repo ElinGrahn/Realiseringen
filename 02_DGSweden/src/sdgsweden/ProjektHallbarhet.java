@@ -8,7 +8,7 @@ package sdgsweden;
  *
  * @author winte
  */
-public class ProjektHallbarhet {
+public class ProjektHallbarhet{
     
     private String pid;
     private String hid;

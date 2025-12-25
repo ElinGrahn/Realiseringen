@@ -8,7 +8,7 @@ package sdgsweden;
  *
  * @author winte
  */
-public class ProjektPartner {
+public class ProjektPartner{
     
     private String pid;
     private String partnerPid;
