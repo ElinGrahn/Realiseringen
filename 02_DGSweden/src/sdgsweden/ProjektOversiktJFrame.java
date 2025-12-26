@@ -20,40 +20,41 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
     public ProjektOversiktJFrame() {
         initComponents();
         projektOversikt();
-        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
-        model.setRowCount(0); 
-    // default håller kollumnnamn, rader, lägga till och ta bort rader. 
-    //model gör att tabellen kan innehålla data.
-        
-        model.addRow(new Object[]{
-        "Testprojekt", 
-        "Pågående",
-        "2025-12-30",
-        "planerat 2026-03-30",
-        "testbeskrivning"
-        
-       });
+//        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
+//        model.setRowCount(0); 
+//     default håller kollumnnamn, rader, lägga till och ta bort rader. 
+//     model gör att tabellen kan innehålla data.
 
     }
     public void projektOversikt(){
         DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
         model.setRowCount(0); 
 //        
-//        Projekt p1 = new Projekt(
-//                " här ska data för alla attribut in, se testprojektet ovan");
-//
-//    model.addRow(new Object[]{
-//        (objektetsnamn).getProjektnamn(),
-//        (objektetsnamn).getBeskrivning(),
-//        (objektetsnamn).getStartdatum(),
-//        (objektetsnamn).getSlutdatum(),
-//        (objektetsnamn).getKostnad(),
-//        (objektetsnamn).getStatus(),
-//        (objektetsnamn).getPrioritet(),
-//        (objektetsnamn).getProjektchef(),
-//        (objektetsnamn).getLand()
-//    
-//    });
+         Projekt p1 = new Projekt(
+        "projekt01",
+        "Testprojekt", 
+        "beskrivning för projektet: ...",
+        "2024-12-30",
+        "2025-03-30",
+         5000000,
+        "Pågående",
+        "hög",
+        "000101-1122",
+        "test-land");
+
+    model.addRow(new Object[]{
+        p1.getPid(),
+        p1.getProjektnamn(),
+        p1.getBeskrivning(),
+        p1.getStartdatum(),
+        p1.getSlutdatum(),
+        p1.getKostnad(),
+        p1.getStatus(),
+        p1.getPrioritet(),
+        p1.getProjektchefId(),
+        p1.getLandId()
+    
+    });
     }
     
     /**
@@ -72,33 +73,41 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
 
         TableOversikt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Projektnamn", "Status", "Startdatum", "Slutdatum", "Beskrivning"
+                "pid", "Projektnamn", "Beskrivning", "Startdatum", "Slutdatum", "Kostnad", "Status", "Prioritet", "ProjektchefId", "LandId"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TableOversikt);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();

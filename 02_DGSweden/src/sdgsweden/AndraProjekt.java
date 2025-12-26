@@ -5,7 +5,7 @@
 package sdgsweden;
 
 /**
- *
+ * 
  * @author winte
  */
 public class AndraProjekt extends javax.swing.JFrame {
@@ -28,31 +28,59 @@ public class AndraProjekt extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblBeskrivning = new javax.swing.JLabel();
+        alternativ = new javax.swing.JComboBox<>();
+        ButtonOkMedAlt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ändra");
+        lblBeskrivning.setText("Administration av projekt");
+
+        alternativ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alternativ", "Lägg till projekt", "Ändra ett projekt", "Ta bort projekt" }));
+
+        ButtonOkMedAlt.setText("Gå vidare");
+        ButtonOkMedAlt.addActionListener(this::ButtonOkMedAltActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonOkMedAlt)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(alternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblBeskrivning)))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jLabel1)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addComponent(lblBeskrivning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(alternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonOkMedAlt)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ButtonOkMedAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOkMedAltActionPerformed
+      String valtAlternativ = alternativ.getSelectedItem().toString();
+      
+      if(valtAlternativ.equals("Lägg till projekt")){
+          new LaggaTillProjektJFrame().setVisible(true);
+      }else if(valtAlternativ.equals("Ändra ett projekt")){
+            new AndraEttProjektJFrame().setVisible(true);
+      }else if(valtAlternativ.equals("Ta bort projekt")){
+        new TaBortProjektJFrame().setVisible(true); 
+    }
+    this.dispose(); //Stänger valfönstret
+    }//GEN-LAST:event_ButtonOkMedAltActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,6 +108,8 @@ public class AndraProjekt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ButtonOkMedAlt;
+    private javax.swing.JComboBox<String> alternativ;
+    private javax.swing.JLabel lblBeskrivning;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,7 @@ package sdgsweden;
 
 /**
  *
- * @author winte
+ * @author winte 
  */
 public class Projekt {
      private String pid;
