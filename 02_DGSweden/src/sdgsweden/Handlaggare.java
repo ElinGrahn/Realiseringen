@@ -10,9 +10,9 @@ package sdgsweden;
  */
 public class Handlaggare extends Anstalld {
     private String ansvarighetsomraden;
-    private Mentor mentor;
+    private Handlaggare mentor;
     
-    public Handlaggare(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String ansvarighetsomraden, Mentor mentor){
+    public Handlaggare(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String ansvarighetsomraden, Handlaggare mentor){
         super(
         aid,
         fornamn,
@@ -36,7 +36,8 @@ public class Handlaggare extends Anstalld {
         return ansvarighetsomraden;
     }
     
-    public String getMid(){
-        return mentor.getMid();
+    //En if-sats ifall det inte finns en mentor?
+    public String getMentorId(){
+        return mentor.getAid();
     }
 }
