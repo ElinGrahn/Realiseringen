@@ -8,19 +8,24 @@ package sdgsweden;
  *
  * @author ellig
  */
-public class Handlaggare {
-    private Anstalld hAid;
+public class Handlaggare extends Anstalld {
     private String ansvarighetsomraden;
     private Mentor mentor;
     
-    public Handlaggare(Anstalld aid, String ansvarighetsomraden, Mentor mentor){
-        hAid = aid;
+    public Handlaggare(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String ansvarighetsomraden, Mentor mentor){
+        super(
+        aid,
+        fornamn,
+        efternamn,
+        adress,
+        epost,
+        telefon,
+        anstallningsdatum,
+        losenord,
+        avdelning
+        );
         this.ansvarighetsomraden = ansvarighetsomraden;
         this.mentor = mentor;
-    }
-    
-    public String gethAid(){
-        return hAid.getAid();
     }
     
     public void setAnsvarighetsomraden(String ansvarighetsomraden){
