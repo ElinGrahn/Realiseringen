@@ -19,7 +19,7 @@ public class Anstalld {
     private String losenord;
     private Avdelning avdelning;
     
-    public Anstalld(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord){
+    public Anstalld(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning){
         this.aid = aid;
         this.fornamn = fornamn;
         this.efternamn = efternamn;
@@ -28,6 +28,7 @@ public class Anstalld {
         this.telefon = telefon;
         this.anstallningsdatum = anstallningsdatum;
         this.losenord = losenord;
+        this.avdelning = avdelning;
 }
     
     public String getAid(){
@@ -90,10 +91,6 @@ public class Anstalld {
         return losenord;
     }
     
-      public void setAvdelning(Avdelning avdelning) {
-        this.avdelning = avdelning;
-    }
-
     public String getAvdelning() {
         return avdelning.getNamn();
     }
