@@ -29,17 +29,23 @@ public class AndraProjekt extends javax.swing.JFrame {
     private void initComponents() {
 
         lblBeskrivning = new javax.swing.JLabel();
-        alternativ = new javax.swing.JComboBox<>();
         ButtonOkMedAlt = new javax.swing.JButton();
+        rbtnLaggTill = new javax.swing.JRadioButton();
+        rbtnTaBort = new javax.swing.JRadioButton();
+        rbtnAndra = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblBeskrivning.setText("Administration av projekt");
 
-        alternativ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alternativ", "Lägg till projekt", "Ändra ett projekt", "Ta bort projekt" }));
-
         ButtonOkMedAlt.setText("Gå vidare");
         ButtonOkMedAlt.addActionListener(this::ButtonOkMedAltActionPerformed);
+
+        rbtnLaggTill.setText("Lägg till nytt projekt");
+
+        rbtnTaBort.setText("Ta bort projekt");
+
+        rbtnAndra.setText("Ändra i projekt");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,9 +55,10 @@ public class AndraProjekt extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonOkMedAlt)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(alternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblBeskrivning)))
+                    .addComponent(rbtnTaBort)
+                    .addComponent(rbtnLaggTill)
+                    .addComponent(rbtnAndra)
+                    .addComponent(lblBeskrivning))
                 .addContainerGap(242, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -59,25 +66,28 @@ public class AndraProjekt extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(lblBeskrivning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alternativ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbtnLaggTill)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbtnTaBort)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbtnAndra)
+                .addGap(18, 18, 18)
                 .addComponent(ButtonOkMedAlt)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonOkMedAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOkMedAltActionPerformed
-      String valtAlternativ = alternativ.getSelectedItem().toString();
-      
-      if(valtAlternativ.equals("Lägg till projekt")){
-          new LaggaTillProjektJFrame().setVisible(true);
-      }else if(valtAlternativ.equals("Ändra ett projekt")){
-            new AndraEttProjektJFrame().setVisible(true);
-      }else if(valtAlternativ.equals("Ta bort projekt")){
-        new TaBortProjektJFrame().setVisible(true); 
+
+    if(rbtnLaggTill.isSelected()){
+        new LaggaTillProjektJFrame().setVisible(true);
+    }else if (rbtnTaBort.isSelected()){
+      new TaBortProjektJFrame().setVisible(true); 
+    }else if (rbtnAndra.isSelected()){
+       new AndraEttProjektJFrame().setVisible(true);
     }
     this.dispose(); //Stänger valfönstret
     }//GEN-LAST:event_ButtonOkMedAltActionPerformed
@@ -109,7 +119,9 @@ public class AndraProjekt extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonOkMedAlt;
-    private javax.swing.JComboBox<String> alternativ;
     private javax.swing.JLabel lblBeskrivning;
+    private javax.swing.JRadioButton rbtnAndra;
+    private javax.swing.JRadioButton rbtnLaggTill;
+    private javax.swing.JRadioButton rbtnTaBort;
     // End of variables declaration//GEN-END:variables
 }

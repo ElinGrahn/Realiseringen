@@ -37,7 +37,7 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
         "2024-12-30",
         "2025-03-30",
          5000000,
-        "Pågående",
+        "Avslutat",
         "hög",
         "000101-1122",
         "test-land");
