@@ -8,17 +8,22 @@ package sdgsweden;
  *
  * @author ellig
  */
-public class Admin {
-    private Anstalld aAid;
-    private String behorighetsniva;
+public class Admin extends Anstalld {
+     private String behorighetsniva;
     
-    public Admin(Anstalld aid, String behorighetsniva){
-        aAid = aid;
+    public Admin(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String behorighetsniva){
+        super(
+        aid,
+        fornamn,
+        efternamn,
+        adress,
+        epost,
+        telefon,
+        anstallningsdatum,
+        losenord,
+        avdelning
+        );
         this.behorighetsniva = behorighetsniva;
-    }
-    
-    public String getAdminAid(){
-        return aAid.getAid();
     }
     
     public void setBehorighetsniva(String behorighetsniva){
