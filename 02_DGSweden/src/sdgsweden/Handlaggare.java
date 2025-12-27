@@ -8,10 +8,12 @@ package sdgsweden;
  *
  * @author ellig
  */
+//Ärver allt från basklassen
 public class Handlaggare extends Anstalld {
     private String ansvarighetsomraden;
     private Handlaggare mentor;
     
+    //super(); anropar och initierar Anstallds konstruktor
     public Handlaggare(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String ansvarighetsomraden, Handlaggare mentor){
         super(
         aid,

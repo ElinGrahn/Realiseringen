@@ -8,9 +8,11 @@ package sdgsweden;
  *
  * @author ellig
  */
+// Ärver allt från basklassen
 public class Admin extends Anstalld {
      private String behorighetsniva;
     
+     //super(); anropar och initierar Anstallds konstruktor
     public Admin(String aid, String fornamn, String efternamn, String adress, String epost, String telefon, String anstallningsdatum, String losenord, Avdelning avdelning, String behorighetsniva){
         super(
         aid,
