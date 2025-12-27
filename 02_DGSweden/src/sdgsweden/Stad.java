@@ -15,7 +15,7 @@ public class Stad {
     
 public Stad (String namn, String SID){
         this.namn = namn;
-        this.SID = SID;
+        this.sid = sid;
     }
 
 public String getNamn(){
