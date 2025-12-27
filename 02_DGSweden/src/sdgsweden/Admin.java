@@ -9,16 +9,16 @@ package sdgsweden;
  * @author ellig
  */
 public class Admin {
-    private Anstalld aid;
+    private Anstalld aAid;
     private String behorighetsniva;
     
     public Admin(Anstalld aid, String behorighetsniva){
-        this.aid = aid;
+        aAid = aid;
         this.behorighetsniva = behorighetsniva;
     }
     
     public String getAdminAid(){
-        return aid.getAid();
+        return aAid.getAid();
     }
     
     public void setBehorighetsniva(String behorighetsniva){
