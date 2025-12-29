@@ -1,10 +1,17 @@
+//hämta pid + all tillhörande data via sql
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package sdgsweden;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /** 
  *
@@ -13,49 +20,49 @@ import javax.swing.table.DefaultTableModel;
 public class ProjektOversiktJFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProjektOversiktJFrame.class.getName());
-
+    private InfDB idb;
     /**
      * Creates new form ProjektJFrame
      */
     public ProjektOversiktJFrame() {
         initComponents();
-        projektOversikt();
+//        projektOversikt();
 //        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
 //        model.setRowCount(0); 
 //     default håller kollumnnamn, rader, lägga till och ta bort rader. 
 //     model gör att tabellen kan innehålla data.
 
     }
-    public void projektOversikt(){
-        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
-        model.setRowCount(0); 
+//    public void projektOversikt(){
+//        DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
+//        model.setRowCount(0); 
 //        
-         Projekt p1 = new Projekt(
-        "projekt01",
-        "Testprojekt", 
-        "beskrivning för projektet: ...",
-        "2024-12-30",
-        "2025-03-30",
-         5000000,
-        "Avslutat",
-        "hög",
-        "000101-1122",
-        "test-land");
-
-    model.addRow(new Object[]{
-        p1.getPid(),
-        p1.getProjektnamn(),
-        p1.getBeskrivning(),
-        p1.getStartdatum(),
-        p1.getSlutdatum(),
-        p1.getKostnad(),
-        p1.getStatus(),
-        p1.getPrioritet(),
-        p1.getProjektchefId(),
-        p1.getLandId()
-    
-    });
-    }
+//         Projekt p1 = new Projekt(
+//        "projekt01",
+//        "Testprojekt", 
+//        "beskrivning för projektet: ...",
+//        "2024-12-30",
+//        "2025-03-30",
+//         5000000,
+//        "Avslutat",
+//        "hög",
+//        "000101-1122",
+//        "test-land");
+//
+//    model.addRow(new Object[]{
+//        p1.getPid(),
+//        p1.getProjektnamn(),
+//        p1.getBeskrivning(),
+//        p1.getStartdatum(),
+//        p1.getSlutdatum(),
+//        p1.getKostnad(),
+//        p1.getStatus(),
+//        p1.getPrioritet(),
+//        p1.getProjektchefId(),
+//        p1.getLandId()
+//    
+//    });
+//    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,6 +75,9 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         TableOversikt = new javax.swing.JTable();
+        lblAngePid = new javax.swing.JLabel();
+        txtAngePid = new javax.swing.JTextField();
+        btnOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,25 +103,82 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableOversikt);
 
+        lblAngePid.setText("Ange pid");
+
+        txtAngePid.addActionListener(this::txtAngePidActionPerformed);
+
+        btnOk.setText("Ok");
+        btnOk.addActionListener(this::btnOkActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAngePid)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAngePid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOk)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAngePid)
+                    .addComponent(txtAngePid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOk))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtAngePidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAngePidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAngePidActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        // TODO add your handling code here:
+        try{
+            String pid =txtAngePid.getText();
+            String fraga = "SELECT * FROM ngo_2025.projekt WHERE pid =" + pid;
+           
+            ArrayList<HashMap<String, String>> databasSvar = idb.fetchRows(fraga);
+            
+            DefaultTableModel model = (DefaultTableModel)TableOversikt.getModel();
+            model.setRowCount(0); 
+             
+             for(HashMap<String, String> row : databasSvar){
+             model.addRow(new Object[]{
+            row.get("pid"),
+            row.get("Projektnamn"),
+            row.get("Beskrivning"),
+            row.get("Startdatum"),
+            row.get("Slutdatum"),
+            row.get("Kostnad"),
+            row.get("Status"),
+            row.get("Prioritet"),
+            row.get("ProjektchefId"),
+            row.get("LandId")
+    
+    });
+             }
+             TableOversikt.revalidate();
+             TableOversikt.repaint();
+             
+        } catch(InfException e){
+            JOptionPane.showMessageDialog(this,"Något vart fel!");
+        }
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +207,9 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableOversikt;
+    private javax.swing.JButton btnOk;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAngePid;
+    private javax.swing.JTextField txtAngePid;
     // End of variables declaration//GEN-END:variables
 }
