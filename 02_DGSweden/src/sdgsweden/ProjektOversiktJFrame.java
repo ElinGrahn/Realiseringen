@@ -19,8 +19,10 @@ import oru.inf.InfException;
  */
 public class ProjektOversiktJFrame extends javax.swing.JFrame {
     
+     private InfDB idb;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProjektOversiktJFrame.class.getName());
-    private InfDB idb;
+   
     /**
      * Creates new form ProjektJFrame
      */
@@ -150,7 +152,7 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String pid =txtAngePid.getText();
-            String fraga = "SELECT * FROM ngo_2025.projekt WHERE pid =" + pid;
+            String fraga = "SELECT * FROM projekt WHERE pid = " + pid;
            
             ArrayList<HashMap<String, String>> databasSvar = idb.fetchRows(fraga);
             
@@ -172,8 +174,8 @@ public class ProjektOversiktJFrame extends javax.swing.JFrame {
     
     });
              }
-             TableOversikt.revalidate();
-             TableOversikt.repaint();
+//             TableOversikt.revalidate();
+//             TableOversikt.repaint();
              
         } catch(InfException e){
             JOptionPane.showMessageDialog(this,"Något vart fel!");
