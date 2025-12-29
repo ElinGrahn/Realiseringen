@@ -20,10 +20,8 @@ public class Land extends javax.swing.JFrame {
     private String valuta;
     private String tidzon;
     private String politiskStruktur;
-    private String ekonomi;
-    }
+    private String ekonomi;   
     
-    public Land()
     
     public Land(int lid, String namn, String sprak, String valuta, String tidzon, String politiskStruktur, String ekonomi) {
         initComponents();
