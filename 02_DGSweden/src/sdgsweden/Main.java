@@ -20,8 +20,16 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+   
+//       try{
+//        InfDB idb = new InfDB("SDG", "3306", "user", "password");
+//        new ProjektOversiktJFrame().setVisible(true);
        //new Stad().setVisible(true); (Tror inte denna behöver vara här? - B)
        //new logInJFrame().setVisible(true);
+      
+//    }catch(InfException e){
+//        System.out.println("error");
     }
     
 }
+

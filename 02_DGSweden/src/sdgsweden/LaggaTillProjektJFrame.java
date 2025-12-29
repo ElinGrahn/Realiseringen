@@ -204,20 +204,20 @@ public class LaggaTillProjektJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-       Projekt p = new Projekt(
-       txtPid.getText(),
-       txtProjektnamn.getText(),
-       txtBeskrivning.getText(),
-       txtStartdatum.getText(),
-       txtSlutdatum.getText(),
-       Integer.parseInt(txtKostnad.getText()),
-       comboStatus.getSelectedItem().toString(),
-       comboPrioritet.getSelectedItem().toString(),
-       txtProjektchefId.getText(),
-       txtLandId.getText()
-    );
-       ProjektRegister.laggTillProjekt(p);
-       JOptionPane.showMessageDialog(this,"Projekt tillagt"); 
+//       Projekt p = new Projekt(
+//       txtPid.getText(),
+//       txtProjektnamn.getText(),
+//       txtBeskrivning.getText(),
+//       txtStartdatum.getText(),
+//       txtSlutdatum.getText(),
+//       Integer.parseInt(txtKostnad.getText()),
+//       comboStatus.getSelectedItem().toString(),
+//       comboPrioritet.getSelectedItem().toString(),
+//       txtProjektchefId.getText(),
+//       txtLandId.getText()
+//    );
+//       ProjektRegister.laggTillProjekt(p);
+//       JOptionPane.showMessageDialog(this,"Projekt tillagt"); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
    
