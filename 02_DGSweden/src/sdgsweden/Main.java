@@ -1,6 +1,6 @@
 package sdgsweden;
-//import oru.inf.InfDB;
-//import oru.inf.InfException;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 
 /*
@@ -14,6 +14,8 @@ package sdgsweden;
  */
 public class Main {
 
+    private InfDB idb;
+    
     /**
      * @param args the command line arguments
      */
