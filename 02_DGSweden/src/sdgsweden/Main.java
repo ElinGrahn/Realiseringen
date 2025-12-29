@@ -21,7 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
        //new Stad().setVisible(true); (Tror inte denna behöver vara här? - B)
-       new logInJFrame().setVisible(true);
+       //new logInJFrame().setVisible(true);
     }
     
 }
