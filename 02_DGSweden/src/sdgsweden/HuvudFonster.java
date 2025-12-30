@@ -15,7 +15,7 @@ public class HuvudFonster extends javax.swing.JFrame {
         initComponents();
         
         try{
-            idb = new InfDB("ngo_2024", "3306", "dbAdmin2024", "dbAdmin2024PW");
+            idb = new InfDB("ngo_2024", "3306", "root", "1997");
         } catch(InfException e){
             JOptionPane.showMessageDialog(null, "Något blev fel");
             System.out.println("Något blev fel");
