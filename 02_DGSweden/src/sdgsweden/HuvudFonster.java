@@ -18,28 +18,28 @@ public class HuvudFonster extends javax.swing.JFrame {
             idb = new InfDB("ngo_2024", "3306", "root", "1997");
         } catch(InfException e){
             JOptionPane.showMessageDialog(null, "Något blev fel");
-            System.out.println("Något blev fel");
         }
-    }
+    } 
 
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblFornamn = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
+        lblProjektnamn = new javax.swing.JLabel();
+        lblPid = new javax.swing.JLabel();
         btnHamta = new javax.swing.JButton();
         txtInput = new javax.swing.JTextField();
         lblOutputNamn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblFornamn.setText("förnamn");
+        lblProjektnamn.setText("Projektnamn");
 
-        lblId.setText("id:");
+        lblPid.setText("pid");
 
         btnHamta.setText("hämta");
+        btnHamta.addActionListener(this::btnHamtaActionPerformed);
 
         lblOutputNamn.setText("lblNamn");
 
@@ -51,7 +51,7 @@ public class HuvudFonster extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(lblFornamn))
+                        .addComponent(lblProjektnamn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,7 +60,7 @@ public class HuvudFonster extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(lblOutputNamn))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblId)
+                                .addComponent(lblPid)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(225, Short.MAX_VALUE))
@@ -72,10 +72,10 @@ public class HuvudFonster extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblOutputNamn)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFornamn)
+                        .addComponent(lblProjektnamn)
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblId)
+                            .addComponent(lblPid)
                             .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnHamta)))
@@ -85,13 +85,28 @@ public class HuvudFonster extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnHamtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHamtaActionPerformed
+       
+        try{
+            String pid = txtInput.getText();
+            String fraga = "SELECT projektnamn FROM projekt WHERE pid = " + pid;
+            String databasSvar = idb.fetchSingle(fraga);
+            
+            String utskrift = databasSvar;
+            lblOutputNamn.setText(utskrift);
+        }catch (InfException e){
+            JOptionPane.showMessageDialog(null, "heej");
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnHamtaActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHamta;
-    private javax.swing.JLabel lblFornamn;
-    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblOutputNamn;
+    private javax.swing.JLabel lblPid;
+    private javax.swing.JLabel lblProjektnamn;
     private javax.swing.JTextField txtInput;
     // End of variables declaration//GEN-END:variables
 }
