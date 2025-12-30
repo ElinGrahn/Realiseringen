@@ -11,7 +11,7 @@ public class HuvudFonster extends javax.swing.JFrame {
 //  private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HuvudFonster.class.getName());
  private InfDB idb;
  
-    public HuvudFonster() {
+    public HuvudFonster() { 
         initComponents();
         
         try{
