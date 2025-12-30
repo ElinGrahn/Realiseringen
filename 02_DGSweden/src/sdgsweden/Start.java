@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-/**
+/**  
  *
  * @author winte
  */
